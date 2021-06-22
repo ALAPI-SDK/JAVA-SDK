@@ -3,6 +3,9 @@
 **/build/
 !src/**/build/
 
+# Ignore gpg keys
+/*.gpg
+
 # Ignore gradle properties
 gradle.properties
 
