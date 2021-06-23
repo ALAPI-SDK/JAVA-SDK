@@ -63,8 +63,11 @@ public class TestClass {
 
     public static void main(String[] args) {
         AlapiRequest request = new AlapiRequest();
-        // example "/api/joke/random"
-        request.setApi("API 地址 / specific API path");  
+        // API 地址 / specific API path
+        request.setApi("/api/domain/dns");
+        request.addTextParam("domain", "alapi.net");
+        // 如果想上传文件，使用 "addFileParam" 方法
+        // If you want to upload files, use the "addFileParam" method
         try {
             AlapiResponse response = client.execute(request);
             System.out.println(response.getCode()); // status code / 状态码
