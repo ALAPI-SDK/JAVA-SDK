@@ -7,7 +7,7 @@ plugins {
 }
 
 group 'cn.alapi'
-version '1.0'
+version '1.0.1'
 
 repositories {
     mavenCentral()
@@ -118,12 +118,9 @@ signing {
 
 jar.enabled = false
 shadowJar {
-    baseName = 'alapi-javasdk'
-    classifier = null
-    version = '1.0.0'
-    manifest {
-        attributes 'Main-Class': 'cn.alapi.javasdk.AlapiClient'
-    }
+    archiveClassifier.set(null)
+    archiveFileName.set("alapi-javasdk-${archiveVersion.get()}.jar")
+    configurations = [project.configurations.compileClasspath]
 }
 
 assemble.dependsOn(shadowJar)
